@@ -25,7 +25,6 @@
 #define DEVICE_VER      0x0002
 #define MANUFACTURER    Keyhive
 #define PRODUCT         Solarius_Sofle //New unique name
-#define DESCRIPTION     Rose version of the Sofle
 
 // Set which side is master
 #define MASTER_LEFT
@@ -61,8 +60,6 @@
 #define D2SKATE_MACRO_ENABLE	//Enable Destiny 2 hunter skate macro (+224)
 
 // Disabled to save space
-#define NO_ACTION_MACRO
-#define NO_ACTION_FUNCTION
 #define NO_ACTION_ONESHOT		//Save 244 bytes (-244).
 #define NO_RESET				//Save 40 bytes (-40).
 #define LAYER_STATE_8BIT		//For less than 8 bits worth of layers.
@@ -111,7 +108,7 @@
 	#define V_PEAK 2.0		//Per QMK docs.
 	#define V_RMS 2.0 		//Per ELV1411A datasheet.
 	#define F_LRA 150 		//Resonant frequency per ELV1411A datasheet.
-	
+
 	//#define HAPTIC_OFF_IN_LOW_POWER 1 //Turn off haptic feedback while sleeping (+54).
 	#define NO_HAPTIC_PUNCTUATION
 	#define NO_HAPTIC_ALPHA
@@ -126,7 +123,7 @@
 	#define PIMORONI_TRACKBALL_ROTATE //Change according to your particular installed trackball orientation.
 	#define PIMORONI_TRACKBALL_INVERT_Y
 	#define PIMORONI_TRACKBALL_INVERT_X
-#endif               
+#endif
 
 // RGB settings
 #ifdef RGBLIGHT_ENABLE

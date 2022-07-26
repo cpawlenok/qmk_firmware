@@ -68,8 +68,6 @@ static uint16_t held_shift = 0;
 	  NMR, 				//Move window to monitor on right
 	  NML, 				//Move window to monitor on left
 	  SBS, 				//Shift backspace to delete whole word (Swap KC_BPSC with this)
-      PM_SCROLL,		//Toggle trackball scrolling mode
-      PM_PRECISION,		//Toggle trackball precision mode
 	  D2SKATE			//Destiny 2 hunter sword skate
 	};
 #else
@@ -79,8 +77,6 @@ static uint16_t held_shift = 0;
 	  NMR, 				//Move window to monitor on right
 	  NML, 				//Move window to monitor on left
 	  SBS,				//Shift backspace to delete whole word (Swap KC_BPSC with this)
-      PM_SCROLL,		//Toggle trackball scrolling mode
-      PM_PRECISION,		//Toggle trackball precision mode
 	  D2SKATE			//Destiny 2 hunter sword skate
 	};
 #endif
@@ -147,11 +143,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {  //Can skip these
 		} else if (!trackball_is_precision) {
 			pimoroni_trackball_set_rgbw(0, 27, 199, 0x00);
 		} else {
-			pimoroni_trackball_set_rgbw(217, 165, 33, 0x00);	//RGB_GOLDENROD in number form. 
+			pimoroni_trackball_set_rgbw(217, 165, 33, 0x00);	//RGB_GOLDENROD in number form.
 		}
 		#endif
 	}
-	
+
 	uint8_t pointing_device_handle_buttons(uint8_t buttons, bool pressed, pointing_device_buttons_t button) {
 		if (pressed) {
 			buttons |= 1 << (button);
@@ -228,7 +224,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			oled_timer = timer_read32();
 		}
 	#endif
-	
+
 	switch (keycode) { //For keycode overrides
 		#ifdef SUPER_ALT_TAB_ENABLE
 		case ATABF:	//Alt tab forwards
@@ -258,7 +254,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				}
 			return true;
 		#endif
-		  
+
 		case NMR:	//Move window to next monitor on right
 		  if (record->event.pressed) {
 			register_code(KC_LSFT);
@@ -351,7 +347,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				}
 				return true;
 		#endif
-			
+
 		#ifdef POINTING_DEVICE_ENABLE //Allow modes when trackball is enabled.
 				case PM_SCROLL:
 					if (record->event.pressed) {
@@ -390,7 +386,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 						break;
 			#endif
 		#endif
-		
+
 		#ifdef KEYBOARD_PET // KEYBOARD PET STATUS
 			case KC_LCTL:
 			case KC_RCTL:
@@ -416,7 +412,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				}
 				return true;
 		#endif
-		
+
 		#ifdef HAPTIC_ENABLE	//Set different patterns for keys on certain layers. In this case it is for gaming feedback.
 			case KC_G:
 				if (record->event.pressed && (get_highest_layer(layer_state)==1)) {
@@ -486,7 +482,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		  }
 		return state;
 	}
-	
+
 	bool led_update_user(led_t led_state)	//Lock key status indicators
 	{
 		if(led_state.caps_lock){
