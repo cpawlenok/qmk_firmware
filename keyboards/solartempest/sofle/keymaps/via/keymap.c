@@ -349,7 +349,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		#endif
 
 		#ifdef POINTING_DEVICE_ENABLE //Allow modes when trackball is enabled.
-				case PM_SCROLL:
+				case KC_SCRL:
 					if (record->event.pressed) {
 						if (trackball_is_scrolling || was_scrolling){ //Enable toggling for trackball scrolling
 							trackball_is_scrolling=false;
@@ -361,18 +361,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 						run_trackball_cleanup();
 						break;
 					}
-				case PM_PRECISION:
-					if (record->event.pressed) {
-						if (trackball_is_precision){ //Enable toggling for trackball precision
-							pimoroni_trackball_set_precision(1.75);
-							trackball_is_precision=false;
-						} else{
-							pimoroni_trackball_set_precision(0.8);
-							trackball_is_precision=true;
-						}
-						run_trackball_cleanup();
-						break;
-					}
+
 			#ifndef MOUSEKEY_ENABLE //Allow for using mouse buttons in the keymap when mouse keys is not enabled.
 					case KC_MS_BTN1:
 						mouse_button_one = record->event.pressed;
@@ -506,7 +495,7 @@ void keyboard_post_init_user(void)
 	#endif
 	layer_move(0); 						//Start on layer0 by default to set LED colours. Can remove to save a very small amount of space.
 	#ifdef POINTING_DEVICE_ENABLE
-		pimoroni_trackball_set_precision(1.75);	//Start trackball with lower precision mode
+		pimoroni_trackball_set_cpi(1.75);	//Start trackball with lower precision mode
 		run_trackball_cleanup();
 	#endif
 }
