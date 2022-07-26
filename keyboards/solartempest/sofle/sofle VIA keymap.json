@@ -31,24 +31,14 @@
       "shortName": "SBS"
     },
     {
-      "name": "Trackball Scroll",
-      "title": "Pimoroni Trackball Scroll Mode",
-      "shortName": "PM_SCROLL"
-    },
-    {
-      "name": "Trackball Precision",
-      "title": "Pimoroni Trackball Precision Mode",
-      "shortName": "PM_PRECISION"
-    },
-    {
       "name": "D2 Hunter Skate",
       "title": "Destiny 2 Hunter Sword Skate",
       "shortName": "D2SKATE"
     }
   ],
-  "layouts": 
+  "layouts":
   {
-    "keymap": 
+    "keymap":
 	 [
 		[{"y":0.5,"x":3.25},"0,3",{"x":9},"5,3"],
 		[{"y":-0.87,"x":2.25},"0,2",{"x":1},"0,4",{"x":7},"5,4",{"x":1},"5,2"],
